@@ -1,0 +1,42 @@
+# Entorno virtual
+.blog/
+venv/
+env/
+
+# Variables de entorno
+.env
+.env.*
+
+# Base de datos
+db.sqlite3
+*.sqlite3
+
+# Archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos de logs
+*.log
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de VS Code
+.vscode/
+
+# Archivos de migraciones (opcional, depende tu estrategia)
+# */migrations/*
+# !*/migrations/__init__.py
+
+# Archivos estáticos recolectados
+staticfiles/
+
+# Media (si subís archivos)
+media/
+
+# Archivos temporales
+*.swp
+blog_fianl.docx
