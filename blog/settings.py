@@ -7,11 +7,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # 🔐 Seguridad
 SECRET_KEY = os.getenv("SECRET_KEY", "unsafe-secret-key")
 
-DEBUG = os.getenv("DEBUG", "False") == "True"
+DEBUG = False
 
-ALLOWED_HOSTS = [
-    os.getenv("RENDER_EXTERNAL_HOSTNAME", "localhost"),
-]
+ALLOWED_HOSTS = ["*"]
 
 # Apps
 INSTALLED_APPS = [
@@ -42,6 +40,22 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    },
+]
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 ROOT_URLCONF = "blog.urls"
 
@@ -49,11 +63,8 @@ WSGI_APPLICATION = "blog.wsgi.application"
 
 # 🐘 Base de datos (Render PostgreSQL)
 DATABASES = {
-    "default": dj_database_url.config(
-        default=os.getenv("DATABASE_URL")
-    )
+    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
-
 # Internacionalización
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
