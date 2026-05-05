@@ -28,9 +28,10 @@ INSTALLED_APPS = [
     "posts",
     "comments"
 ]
-
+CORS_ALLOW_ALL_ORIGINS = True
 # Middleware (🔥 agregado WhiteNoise)
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",  # 👈 CLAVE
     "django.contrib.sessions.middleware.SessionMiddleware",
