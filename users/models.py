@@ -3,7 +3,8 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class User(AbstractUser):
-    email=models.EmailField(unique=True)
+    # email=models.EmailField(unique=True)
 
-    USERNAME_FIELD='email'
-    REQUIRED_FIELDS=[]
+    # USERNAME_FIELD='email'
+    # REQUIRED_FIELDS=[]
+    pass
